@@ -1,0 +1,87 @@
+<div class="description">
+   <p>Continuously looking my next version, updating every day and doing my best in everything. Follower of good
+      practices and constantly looking for new areas to apply and expand my knowledge.
+      I consider myself a sociable person who enjoys team work, sports, music and spent time with friends.
+   </p>
+</div>
+<div class="body-container">
+   <br>
+   <br>
+   <h1 class="project-name">PROFESSIONAL CAREER CHRONOLOGY</h1>
+   <div id="timeline">
+      <ng-template ngFor let-job [ngForOf]="$jobData | async">
+         <div class="timeline-item">
+            <div class="timeline-icon">
+            </div>
+            <div class="experience-right"><span *ngIf="job.organization === 'Solvd'">{{job.clients[0].jobtime}}</span>
+            </div>
+            <div class="timeline-content solvd" *ngIf="job.organization === 'Solvd'">
+               <h2 class="solvd">{{job.organization}}</h2>
+               <p>
+                  {{job.clients[0].jobtitle}}
+               </p>
+               <button type="button" class="btn btn-primary solvd" (click)="open('Solvd')">Description</button>
+            </div>
+         </div>
+         <div class="timeline-item">
+            <div class="timeline-icon">
+            </div>
+            <div class="experience-left"><span
+                  *ngIf="job.organization === 'Overactive'">{{job.clients[0].jobtime}}</span></div>
+            <div class="timeline-content overactive" *ngIf="job.organization === 'Overactive'">
+               <h2 class="overactive">{{job.organization}}</h2>
+               <p>
+                  {{job.clients[0].jobtitle}}
+               </p>
+               <button type="button" class="btn btn-primary overactive"
+                  (click)="open('Overactive')">Description</button>
+            </div>
+         </div>
+         <div class="timeline-item">
+            <div class="timeline-icon">
+            </div>
+            <div class="experience-right"><span *ngIf="job.organization === 'Infor'">{{job.clients[0].jobtime}}</span>
+            </div>
+            <div class="timeline-content infor" *ngIf="job.organization === 'Infor'">
+               <h2 class="infor">{{job.organization}}</h2>
+               <p>
+                  {{job.clients[0].jobtitle}}
+               </p>
+               <button type="button" class="btn btn-primary infor" (click)="open('Infor')">Description</button>
+            </div>
+         </div>
+         <div class="timeline-item">
+            <div class="timeline-icon">
+            </div>
+            <div class="experience-left"><span *ngIf="job.organization === 'Globant'">{{job.clients[0].jobtime}}</span>
+            </div>
+            <div class="timeline-content globant" *ngIf="job.organization === 'Globant'">
+               <h2 class="globant">{{job.organization}}</h2>
+               <p>
+                  {{job.clients[0].jobtitle}}
+               </p>
+               <button type="button" class="btn btn-primary globant" (click)="open('Globant')">Description</button>
+            </div>
+         </div>
+         <div class="timeline-item">
+            <div class="timeline-icon">
+            </div>
+            <div class="experience-right"><span
+                  *ngIf="job.organization === 'Technisys'">{{job.clients[0].jobtime}}</span></div>
+            <div class="timeline-content technisys" *ngIf="job.organization === 'Technisys'">
+               <h2 class="technisys">{{job.organization}}</h2>
+               <p>
+                  {{job.clients[0].jobtitle}}
+               </p>
+               <button type="button" class="btn btn-primary technisys" (click)="open('Technisys')">Description</button>
+            </div>
+         </div>
+      </ng-template>
+   </div>
+   <div>
+      <div class="cv">
+          <span>Curriculum Vitae</span>
+          <a class="pdf-icon" href="assets/CV-Andres-Vaninetti.pdf" download></a>
+      </div>
+  </div>
+</div>

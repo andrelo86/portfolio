@@ -1,0 +1,326 @@
+// Variables
+$bg-body: #d6edff;
+
+$solvd: #13ce22;
+$overactive: #011bff;
+$infor: #ee4d4d;
+$globant: #5aa044;
+$technisys: #06b8d8;
+$arena: #f2d16b;
+$aqua: rgba(1, 170, 170, 0.502);
+
+$solvd-color: $solvd;
+$overactive-color: $overactive;
+$infor-color: $infor;
+$globant-color: $globant;
+$technisys-color: $technisys;
+
+// Mixins and Placeholders
+%clearfix {
+  &:after,
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    clear: both;
+  }
+}
+
+@mixin prefix($prop, $val) {
+  @each $prefix in "-webkit-", "-moz-", "-ms-", "" {
+    #{$prefix}#{$prop}: $val;
+  }
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.body-container {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: $arena;
+  h1 {
+    color: black;
+    font-family: "Amatic SC", cursive;
+    font-size: 70px;
+  }
+  .project-name {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 50px;
+  }
+}
+
+// Timeline
+#timeline { 
+  width: 60%;
+  margin: 70px auto;
+  margin-bottom: 0%;
+  position: relative;
+  padding: 0 10px;
+  @include prefix(transition, all 0.4s ease);
+  &:before {
+    content: "";
+    width: 3px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    position: absolute;
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+      0deg,
+      $arena 0%,
+      $aqua 50%
+    ); // timeline middle line color
+  }
+  &:after {
+    content: "";
+    clear: both;
+    display: table;
+    width: 100%;
+  }
+  .experience-right {
+    font-family: "Amatic SC", cursive;
+    font-weight: bold;
+    font-size: large;
+    color: black;
+    margin-left: 55%;
+  }
+  .experience-left {
+    font-family: "Amatic SC", cursive;
+    font-weight: bold;
+    font-size: large;
+    color: black;
+    margin-left: 32%;
+  }
+  .timeline-item {
+    margin-bottom: 150px;
+    position: relative;
+    @extend %clearfix;
+    .timeline-icon {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      overflow: hidden;
+      margin-left: -23px;
+      @include prefix(border-radius, 50%);
+      svg {
+        position: relative;
+        top: 14px;
+        left: 14px;
+      }
+      background: rgb(6, 191, 216);
+      background: radial-gradient(circle, rgba(6, 191, 216, 1) 0%, $arena 100%);
+    }
+    .timeline-content {
+      width: 45%;
+      background: $arena;
+      padding: 0px;
+      font-family: "Amatic SC", cursive;
+      h2 {
+        padding: 10px;
+        color: white;
+        margin: -20px -20px 0 -20px;
+        @include prefix(border-radius, 3px 3px 0 0);
+        &.solvd {
+          background: $arena;
+          background: linear-gradient(270deg, $arena 0%, $solvd 100%);
+        }
+        &.overactive {
+          text-align: right;
+          background: $arena;
+          background: linear-gradient(87deg, $arena 0%, $overactive 100%);
+        }
+        &.infor {
+          background: $arena;
+          background: linear-gradient(270deg, $arena 0%, $infor 100%);
+        }
+        &.globant {
+          text-align: right;
+          background: $arena;
+          background: linear-gradient(90deg, $arena 0%, $globant 100%);
+        }
+        &.technisys {
+          background: $arena;
+          background: linear-gradient(270deg, $arena 0%, $technisys 100%);
+        }
+      }
+      p {
+        font-size: 25px;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+      }
+      &.solvd {
+        &:before {
+          content: "";
+          position: absolute;
+        }
+      }
+      &.overactive {
+        float: right;
+        &:before {
+          content: "";
+        }
+        p {
+          text-align: right;
+        }
+      }
+      &.infor {
+        &:before {
+          content: "";
+          position: absolute;
+        }
+      }
+      &.globant {
+        float: right;
+        &:before {
+          content: "";
+        }
+        p {
+          text-align: right;
+        }
+      }
+      &.technisys {
+        &:before {
+          content: "";
+          position: absolute;
+        }
+      }
+    }
+  }
+}
+
+// Buttons
+.btn {
+  border: hidden;
+  font-family: "Amatic SC", cursive;
+  padding: 5px 15px;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+  font-size: 13px;
+  @include prefix(border-radius, 5px);
+  @include prefix(transition, 0.3s ease);
+  &:hover {
+    box-shadow: none;
+    top: 2px;
+    left: 2px;
+    @include prefix(box-shadow, 2px 2px 0 transparent);
+  }
+  &.solvd {
+    background: $solvd-color;
+    //@include prefix(box-shadow, 2px 2px 0 lighten($solvd-color, 10%));
+  }
+  &.overactive {
+    background: $overactive-color;
+    float: right;
+  }
+  &.infor {
+    background: $infor-color;
+  }
+  &.globant {
+    background: $globant-color;
+    float: right;
+  }
+  &.technisys {
+    background: $technisys-color;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #timeline {
+    margin: 30px;
+    padding: 0px;
+    width: 90%;
+    &:before {
+      left: 0;
+    }
+    .timeline-item {
+      .timeline-content {
+        width: 90%;
+        float: right;
+        &:before,
+        &.right:before {
+          left: 10%;
+          margin-left: -6px;
+          border-left: 0;
+        }
+      }
+      .timeline-icon {
+        left: 0;
+      }
+    }
+  }
+}
+
+.description {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(0deg, $arena 0%, rgba(15, 160, 160, 0.5) 50%);
+  height: 145px;
+  p {
+    font-family: "Amatic SC", cursive;
+    position: absolute;
+    margin: 20px 100px;
+    text-align: center;
+    font-size: 30px;
+    line-height: 26pt;
+  }
+}
+
+.cv { 
+  text-align: center;
+  background-color: $arena;
+  height: 200px;
+  span{
+    font-family: "Amatic SC", cursive;
+    font-weight: bold;
+    font-size: xx-large;    
+  }  
+  a {
+    margin-left: 50%;
+    margin-right: 50%;
+  }
+}
+
+.pdf-icon {
+  font-size: 50%;
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  width: 1.5em;
+  height: 2em;
+  background-color: #eee;
+  background-image: url("https://i.imgur.com/lZ5SgDE.png");
+  background-repeat: no-repeat;
+  background-size: 85% auto;
+  background-position: center 2em;
+  border-radius: 1px 2em 1px 1px;
+  border: 1px solid #ddd;
+  &:after {
+    content: "PDF";
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 0.2em 0 0.1em;
+    color: white;
+    display: block;
+    position: absolute;
+    top: 0.7em;
+    left: -1.5em;
+    width: 3.4em;
+    height: auto;
+    background: #da2525;
+    border-radius: 2px;
+  }
+}

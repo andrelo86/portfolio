@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="modal-header">
+    <h4 class="modal-title" *ngIf="$jobData | async; let jobData">{{jobData[0].organization}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" *ngIf="$jobData | async; let jobData">
+    <ng-template ngFor let-clients [ngForOf]="jobData[0].clients" let-i="index">
+      <div>
+        <h3>{{clients.project}}</h3>
+      </div>
+      <div>
+        <p><span style="font-weight: bold;">Tech:</span> {{clients.tech}}</p>
+      </div>
+      <div>
+        <p><span style="font-weight: bold;">Methodologies:</span> {{clients.methodology}}</p>
+      </div>
+      <div>
+        <p><span style="font-weight: bold;">Brief summary:</span> {{clients.description}}</p>
+      </div>
+      <div>----------------------------------------------------</div>
+    </ng-template>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="close()">Close</button>
+  </div>
+</div>
